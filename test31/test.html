@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test golang template</title>
+</head>
+<body>
+{{range $x := . -}}
+{{println $x}}<br>
+{{- end}}<br>
+
+{{with "我是谁？？？？？"}}
+{{println .}}
+{{end}}
+
+{{`"output"`}} <br>
+{{printf "%q" "output"}}<br>
+{{"output" | printf "%q"}}<br>
+{{printf "%q" (print "out" "put")}}<br>
+{{"put" | printf "%s%s" "out" | printf "%q"}}<br>
+{{"output" | printf "%s" | printf "%q"}}<br>
+{{$Name := "小红帽"}}
+{{$Name = "凯撒"}}
+{{$Name}}
+
+{{$len := (len "你好，世界")}}<br>
+
+{{$len}}
+{{$Age := 101}}
+
+{{if (and (ge $Age 18) (lt $Age 100))}}
+<h3>你已经成年！</h3>
+{{else if (lt $Age 18)}}
+<h3>小屁孩</h3>
+{{else if (gt $Age 100)}}
+<h3>成仙者</h3>
+{{end}}
+</body>
+</html>
